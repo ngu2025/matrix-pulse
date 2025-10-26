@@ -1,0 +1,176 @@
+/* Enhanced Subscription Plans */
+.subscription-plans {
+    padding: 80px 0;
+    background: rgba(15, 23, 42, 0.5);
+}
+
+.section-subtitle {
+    text-align: center;
+    margin-bottom: 3rem;
+    opacity: 0.8;
+    font-size: 1.1rem;
+}
+
+.plans-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.plan-card {
+    background: rgba(30, 41, 59, 0.8);
+    border: 2px solid var(--matrix-border);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.plan-card.featured {
+    border-color: var(--matrix-accent);
+    transform: scale(1.05);
+    background: rgba(0, 220, 130, 0.05);
+}
+
+.plan-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--matrix-accent);
+    box-shadow: 0 10px 25px rgba(0, 220, 130, 0.1);
+}
+
+.plan-card.featured:hover {
+    transform: scale(1.05) translateY(-5px);
+}
+
+.plan-badge {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--matrix-accent);
+    color: var(--matrix-bg);
+    padding: 0.3rem 1.5rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.plan-header h3 {
+    color: var(--matrix-accent);
+    margin: 1.5rem 0 0.5rem 0;
+    font-size: 1.3rem;
+}
+
+.plan-header p {
+    opacity: 0.8;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+}
+
+.plan-price {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 1.5rem 0;
+    color: var(--matrix-accent);
+}
+
+.plan-price span {
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+.plan-features {
+    list-style: none;
+    text-align: left;
+    margin: 2rem 0;
+}
+
+.plan-features li {
+    padding: 0.7rem 0;
+    border-bottom: 1px solid var(--matrix-border);
+    font-size: 0.9rem;
+}
+
+.plan-features li:last-child {
+    border-bottom: none;
+}
+
+.plan-features li:before {
+    content: '✓';
+    color: var(--matrix-accent);
+    font-weight: bold;
+    margin-right: 0.5rem;
+}
+
+.plan-card .btn-primary,
+.plan-card .btn-outline {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+/* Enhanced Integration CTA */
+.integration-cta {
+    padding: 60px 0;
+    text-align: center;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.integration-cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(0, 220, 130, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(0, 180, 255, 0.1) 0%, transparent 50%);
+}
+
+.integration-cta .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Enhanced Metrics Display for Subscribed Users */
+.metric-card.subscribed {
+    border-left: 4px solid var(--matrix-accent);
+    background: rgba(30, 41, 59, 0.9);
+}
+
+.metric-card.subscribed .live-indicator::before {
+    border-color: var(--matrix-accent);
+}
+
+/* Responsive Plans */
+@media (max-width: 768px) {
+    .plans-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .plan-card.featured {
+        transform: none;
+    }
+    
+    .plan-card.featured:hover {
+        transform: translateY(-5px);
+    }
+}
+
+/* Subscription Status Badge */
+.subscription-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(0, 220, 130, 0.1);
+    border: 1px solid var(--matrix-accent);
+    border-radius: 20px;
+    padding: 0.5rem 1rem;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}

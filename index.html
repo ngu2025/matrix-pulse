@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Market Monitoring | Matrix Pulse</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/pulse.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>MATRIX PULSE</h1>
+                <span>Live Market Intelligence</span>
+            </div>
+            <nav class="nav">
+                <a href="https://ngu2025.github.io/landing-ai-solutions/" class="nav-link">Get Analysis</a>
+                <a href="#subscription" class="nav-link">Subscription</a>
+                <a href="#demo" class="nav-link">Live Demo</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Dashboard Hero -->
+    <section class="pulse-hero">
+        <div class="container">
+            <h1>Market Intelligence That <span class="accent">Breathes With Your Business</span></h1>
+            <p class="subtitle">Real-time monitoring, adaptive insights, continuous optimization</p>
+            <div class="access-badge">
+                <span class="badge-icon">👁️</span>
+                <span>Demo Mode - Limited functionality</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Metrics Grid -->
+    <section class="live-metrics" id="demo">
+        <div class="container">
+            <div class="metrics-header">
+                <h2>Live Market Dashboard</h2>
+                <div class="metrics-controls">
+                    <select id="timeframe-select">
+                        <option value="realtime">Real-time</option>
+                        <option value="weekly">Weekly</option>
+                        <option value="monthly">Monthly</option>
+                    </select>
+                    <button class="btn-refresh" onclick="refreshMetrics()">🔄 Refresh</button>
+                </div>
+            </div>
+
+            <div class="metrics-grid">
+                <div class="metric-card live" id="market-overview">
+                    <div class="metric-header">
+                        <h3>📊 Market Overview</h3>
+                        <span class="live-indicator"></span>
+                    </div>
+                    <div class="metric-content">
+                        <div class="metric-value" id="market-size">$402.5B</div>
+                        <div class="metric-trend" id="market-trend">+8.7% YoY growth</div>
+                        <div class="metric-chart" id="market-chart">
+                            <div class="chart-placeholder">
+                                <div style="text-align: center; padding: 1rem;">
+                                    <div style="font-size: 0.8rem; opacity: 0.8; margin-bottom: 1rem;">Market Segments</div>
+                                    <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 0.5rem; flex-wrap: wrap;">
+                                        <div style="text-align: center;">
+                                            <div style="font-weight: bold; color: #00dc82; font-size: 0.9rem;">Corporate</div>
+                                            <div style="font-size: 0.8rem;">$186.3B</div>
+                                        </div>
+                                        <div style="text-align: center;">
+                                            <div style="font-weight: bold; color: #00b4ff; font-size: 0.9rem;">Education</div>
+                                            <div style="font-size: 0.8rem;">$124.8B</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="metric-card live" id="competitive-landscape">
+                    <div class="metric-header">
+                        <h3>🎯 Competitive Landscape</h3>
+                        <span class="live-indicator"></span>
+                    </div>
+                    <div class="metric-content">
+                        <div class="competitor-list" id="competitor-list">
+                            <div class="competitor-item">
+                                <span class="competitor-name">Coursera</span>
+                                <span class="competitor-share">18.3%</span>
+                                <span class="competitor-trend up">+2.1%</span>
+                            </div>
+                            <div class="competitor-item">
+                                <span class="competitor-name">LinkedIn Learning</span>
+                                <span class="competitor-share">15.7%</span>
+                                <span class="competitor-trend neutral">+0.5%</span>
+                            </div>
+                            <div class="competitor-item">
+                                <span class="competitor-name">Udemy</span>
+                                <span class="competitor-share">12.4%</span>
+                                <span class="competitor-trend down">-1.2%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="metric-card live" id="customer-insights">
+                    <div class="metric-header">
+                        <h3>👥 Target Audience</h3>
+                        <span class="live-indicator"></span>
+                    </div>
+                    <div class="metric-content">
+                        <div class="segmentation-chart" id="segmentation-chart">
+                            <div style="text-align: center; padding: 1rem;">
+                                <div style="font-size: 0.8rem; opacity: 0.8; margin-bottom: 1rem;">Customer Segmentation</div>
+                                <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                                        <span style="font-size: 0.9rem;">Enterprise</span>
+                                        <span style="color: #00dc82; font-weight: bold; font-size: 0.9rem;">42%</span>
+                                    </div>
+                                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                                        <span style="font-size: 0.9rem;">SMB</span>
+                                        <span style="color: #00b4ff; font-weight: bold; font-size: 0.9rem;">35%</span>
+                                    </div>
+                                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                                        <span style="font-size: 0.9rem;">Education</span>
+                                        <span style="color: #8b5cf6; font-weight: bold; font-size: 0.9rem;">23%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="metric-card live" id="strategic-recommendations">
+                    <div class="metric-header">
+                        <h3>💡 Strategic Recommendations</h3>
+                        <span class="live-indicator"></span>
+                    </div>
+                    <div class="metric-content">
+                        <div class="recommendations-list" id="recommendations-list">
+                            <div class="recommendation-item">
+                                <span class="recommendation-icon">💡</span>
+                                <span class="recommendation-text">Expand SME segment with tiered pricing models</span>
+                            </div>
+                            <div class="recommendation-item">
+                                <span class="recommendation-icon">💡</span>
+                                <span class="recommendation-text">Develop AI-powered personalized learning paths</span>
+                            </div>
+                            <div class="recommendation-item" style="background: rgba(0, 220, 130, 0.1); border-color: var(--matrix-accent);">
+                                <span class="recommendation-icon">🔒</span>
+                                <span class="recommendation-text">
+                                    <strong>Subscribe to unlock all strategic recommendations</strong>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Subscription Plans -->
+    <section class="subscription-plans" id="subscription">
+        <div class="container">
+            <h2>Choose Your Monitoring Frequency</h2>
+            <p class="section-subtitle">Select the update rhythm that matches your business needs</p>
+            
+            <div class="plans-grid">
+                <div class="plan-card">
+                    <div class="plan-header">
+                        <span class="plan-badge">PRO</span>
+                        <h3>Daily Intelligence</h3>
+                        <p>For high-volatility markets</p>
+                    </div>
+                    <div class="plan-price">$799<span>/month</span></div>
+                    <ul class="plan-features">
+                        <li>Daily market updates</li>
+                        <li>Real-time competitive alerts</li>
+                        <li>Priority AI insights</li>
+                        <li>24/7 support access</li>
+                        <li>API integration</li>
+                    </ul>
+                    <button class="btn-primary" onclick="activateSubscription('daily')">Activate Daily</button>
+                </div>
+
+                <div class="plan-card featured">
+                    <div class="plan-header">
+                        <span class="plan-badge">BUSINESS</span>
+                        <h3>Weekly Insights</h3>
+                        <p>Optimal growth tracking</p>
+                    </div>
+                    <div class="plan-price">$499<span>/month</span></div>
+                    <ul class="plan-features">
+                        <li>Weekly comprehensive reports</li>
+                        <li>Market share tracking</li>
+                        <li>Customer behavior analysis</li>
+                        <li>Standard support</li>
+                        <li>Data export</li>
+                    </ul>
+                    <button class="btn-primary" onclick="activateSubscription('weekly')">Activate Weekly</button>
+                </div>
+
+                <div class="plan-card">
+                    <div class="plan-header">
+                        <span class="plan-badge">STANDARD</span>
+                        <h3>Bi-weekly Analysis</h3>
+                        <p>Balanced approach</p>
+                    </div>
+                    <div class="plan-price">$349<span>/month</span></div>
+                    <ul class="plan-features">
+                        <li>Twice-monthly deep analysis</li>
+                        <li>Competitive landscape</li>
+                        <li>Strategic recommendations</li>
+                        <li>Email support</li>
+                        <li>PDF reports</li>
+                    </ul>
+                    <button class="btn-outline" onclick="activateSubscription('biweekly')">Activate Bi-weekly</button>
+                </div>
+
+                <div class="plan-card">
+                    <div class="plan-header">
+                        <span class="plan-badge">ESSENTIAL</span>
+                        <h3>Monthly Strategic</h3>
+                        <p>Comprehensive overview</p>
+                    </div>
+                    <div class="plan-price">$299<span>/month</span></div>
+                    <ul class="plan-features">
+                        <li>Monthly market overview</li>
+                        <li>Trend analysis</li>
+                        <li>Basic competitive intelligence</li>
+                        <li>Self-service dashboard</li>
+                        <li>Standard reports</li>
+                    </ul>
+                    <button class="btn-outline" onclick="activateSubscription('monthly')">Activate Monthly</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Integration CTA -->
+    <section class="integration-cta">
+        <div class="container">
+            <h2>Ready for Adaptive Market Intelligence?</h2>
+            <p>Start with risk-free analysis and choose your monitoring frequency</p>
+            <button class="btn-secondary large" onclick="window.open('https://ngu2025.github.io/landing-ai-solutions/', '_blank')">
+                📊 Get Started with Risk-Free Analysis
+            </button>
+        </div>
+    </section>
+
+    <script src="js/main.js"></script>
+    <script src="js/metrics.js"></script>
+</body>
+</html>

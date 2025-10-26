@@ -1,0 +1,522 @@
+/* Matrix Intelligence Design System */
+:root {
+    --matrix-primary: #1a365d;
+    --matrix-accent: #00dc82;
+    --matrix-bg: #0f172a;
+    --matrix-text: #f8fafc;
+    --matrix-border: #334155;
+    --matrix-success: #10b981;
+    --matrix-warning: #f59e0b;
+    --matrix-error: #ef4444;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--matrix-bg);
+    color: var(--matrix-text);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+.header {
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--matrix-border);
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 {
+    font-size: 1.5rem;
+    color: var(--matrix-accent);
+    margin-bottom: 0.25rem;
+}
+
+.logo span {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.nav {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-link {
+    color: var(--matrix-text);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.nav-link:hover {
+    color: var(--matrix-accent);
+}
+
+/* Hero Section */
+.pulse-hero {
+    padding: 140px 0 80px;
+    text-align: center;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+.pulse-hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.accent {
+    background: linear-gradient(135deg, #00dc82 0%, #00b4ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+    font-size: 1.25rem;
+    opacity: 0.9;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.access-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(0, 220, 130, 0.1);
+    border: 1px solid var(--matrix-accent);
+    border-radius: 20px;
+    padding: 0.5rem 1rem;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+.badge-icon {
+    font-size: 1.2rem;
+}
+
+/* Buttons */
+.btn-primary, .btn-secondary, .btn-outline {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 0 0.5rem;
+}
+
+.btn-primary {
+    background: var(--matrix-accent);
+    color: var(--matrix-bg);
+    font-weight: 600;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 220, 130, 0.3);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--matrix-text);
+    border: 2px solid var(--matrix-accent);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--matrix-text);
+    border: 1px solid var(--matrix-border);
+}
+
+.btn-large {
+    padding: 16px 32px;
+    font-size: 1.1rem;
+}
+
+/* Metrics Grid */
+.live-metrics {
+    padding: 80px 0;
+}
+
+.metrics-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.metrics-controls {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+}
+
+.metric-card {
+    background: rgba(30, 41, 59, 0.8);
+    border: 1px solid var(--matrix-border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.metric-card.live {
+    border-left: 4px solid var(--matrix-accent);
+}
+
+.metric-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--matrix-border);
+}
+
+.metric-header h3 {
+    color: var(--matrix-accent);
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+.live-indicator {
+    width: 8px;
+    height: 8px;
+    background: var(--matrix-accent);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+    position: relative;
+}
+
+.live-indicator::after {
+    content: 'LIVE';
+    position: absolute;
+    left: 15px;
+    top: -3px;
+    font-size: 0.7rem;
+    color: var(--matrix-accent);
+    font-weight: bold;
+}
+
+@keyframes pulse {
+    0% { 
+        opacity: 1;
+        box-shadow: 0 0 0 0 rgba(0, 220, 130, 0.7);
+    }
+    70% { 
+        opacity: 0.7;
+        box-shadow: 0 0 0 6px rgba(0, 220, 130, 0);
+    }
+    100% { 
+        opacity: 1;
+        box-shadow: 0 0 0 0 rgba(0, 220, 130, 0);
+    }
+}
+
+/* Metric Content */
+.metric-content {
+    min-height: 120px;
+}
+
+.metric-value {
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, #00dc82 0%, #00b4ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.metric-trend {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-bottom: 1rem;
+}
+
+.chart-placeholder {
+    height: 120px;
+    background: linear-gradient(135deg, rgba(0, 220, 130, 0.1) 0%, rgba(0, 180, 255, 0.1) 100%);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--matrix-accent);
+    font-size: 0.9rem;
+    margin-top: 1rem;
+}
+
+/* Competitor List */
+.competitor-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.competitor-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem;
+    background: rgba(15, 23, 42, 0.6);
+    border-radius: 6px;
+    border: 1px solid var(--matrix-border);
+    transition: all 0.3s ease;
+}
+
+.competitor-item:hover {
+    border-color: var(--matrix-accent);
+    transform: translateX(5px);
+}
+
+.competitor-name {
+    font-weight: 600;
+    flex: 1;
+}
+
+.competitor-share {
+    color: var(--matrix-accent);
+    font-weight: bold;
+    margin: 0 1rem;
+}
+
+.competitor-trend {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.competitor-trend.up {
+    background: rgba(16, 185, 129, 0.2);
+    color: #10b981;
+}
+
+.competitor-trend.down {
+    background: rgba(239, 68, 68, 0.2);
+    color: #ef4444;
+}
+
+.competitor-trend.neutral {
+    background: rgba(156, 163, 175, 0.2);
+    color: #9ca3af;
+}
+
+/* Recommendations */
+.recommendations-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.recommendation-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 1rem;
+    background: rgba(15, 23, 42, 0.6);
+    border-radius: 8px;
+    border-left: 3px solid var(--matrix-accent);
+    transition: all 0.3s ease;
+}
+
+.recommendation-item:hover {
+    transform: translateX(5px);
+    background: rgba(15, 23, 42, 0.8);
+}
+
+.recommendation-icon {
+    font-size: 1.2rem;
+    margin-top: 0.1rem;
+}
+
+.recommendation-text {
+    flex: 1;
+    line-height: 1.5;
+}
+
+/* Metrics Controls */
+.metrics-controls {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+#timeframe-select {
+    background: var(--matrix-bg);
+    border: 1px solid var(--matrix-border);
+    color: var(--matrix-text);
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+.btn-refresh {
+    background: transparent;
+    border: 1px solid var(--matrix-border);
+    color: var(--matrix-text);
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.btn-refresh:hover {
+    border-color: var(--matrix-accent);
+    color: var(--matrix-accent);
+}
+
+/* Subscription Activation */
+.subscription-activation {
+    padding: 80px 0;
+    background: rgba(15, 23, 42, 0.5);
+}
+
+.activation-card {
+    max-width: 600px;
+    margin: 0 auto;
+    background: rgba(30, 41, 59, 0.9);
+    border: 1px solid var(--matrix-border);
+    border-radius: 12px;
+    padding: 2.5rem;
+    backdrop-filter: blur(10px);
+}
+
+.activation-info h3 {
+    color: var(--matrix-accent);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.subscription-features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    background: rgba(15, 23, 42, 0.6);
+    border-radius: 6px;
+}
+
+.feature .icon {
+    font-size: 1.2rem;
+}
+
+.pricing-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.pricing-option {
+    text-align: center;
+    padding: 1.5rem;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid var(--matrix-border);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.pricing-option.highlighted {
+    border-color: var(--matrix-accent);
+    transform: scale(1.05);
+}
+
+.pricing-option .price {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 1rem 0;
+    color: var(--matrix-accent);
+}
+
+.discount {
+    background: var(--matrix-accent);
+    color: var(--matrix-bg);
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+/* Integration CTA */
+.integration-cta {
+    padding: 60px 0;
+    text-align: center;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .pulse-hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .metrics-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .subscription-features {
+        grid-template-columns: 1fr;
+    }
+    
+    .pricing-options {
+        grid-template-columns: 1fr;
+    }
+    
+    .pricing-option.highlighted {
+        transform: none;
+    }
+    
+    .metrics-header {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+    
+    .header {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .nav {
+        gap: 1rem;
+    }
+}
