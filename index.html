@@ -31,6 +31,16 @@
                 <span class="badge-icon">👁️</span>
                 <span>Demo Mode - Limited functionality</span>
             </div>
+            
+            <!-- ДОБАВЛЕНА КНОПКА БЫСТРОГО ДОСТУПА К ПОДПИСКЕ -->
+            <div class="hero-actions">
+                <button class="btn-primary large" onclick="scrollToSubscription()">
+                    🚀 Unlock Full Dashboard
+                </button>
+                <button class="btn-outline" onclick="showDemoBenefits()">
+                    👁️ See Full Features
+                </button>
+            </div>
         </div>
     </section>
 
@@ -152,9 +162,24 @@
                                 <span class="recommendation-text">
                                     <strong>Subscribe to unlock all strategic recommendations</strong>
                                 </span>
+                                <!-- ДОБАВЛЕНА КНОПКА ПОДПИСКИ ВНУТРИ ДЭШБОРДА -->
+                                <button class="btn-subscribe-small" onclick="scrollToSubscription()">
+                                    Unlock Now
+                                </button>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <!-- ДОБАВЛЕН БАННЕР ПОДПИСКИ ПОД ДЭШБОРДОМ -->
+            <div class="demo-upsell">
+                <div class="upsell-content">
+                    <h3>🔓 Unlock Full Market Intelligence</h3>
+                    <p>Get real-time data, advanced analytics, and personalized recommendations</p>
+                    <button class="btn-primary" onclick="scrollToSubscription()">
+                        View Subscription Plans
+                    </button>
                 </div>
             </div>
         </div>
@@ -181,7 +206,10 @@
                         <li>24/7 support access</li>
                         <li>API integration</li>
                     </ul>
-                    <button class="btn-primary" onclick="activateSubscription('daily')">Activate Daily</button>
+                    <!-- ОБНОВЛЕНА КНОПКА - ТЕПЕРЬ ФУНКЦИОНАЛЬНАЯ -->
+                    <button class="btn-primary" onclick="activateSubscription('daily', 799)">
+                        💎 Subscribe Daily - $799
+                    </button>
                 </div>
 
                 <div class="plan-card featured">
@@ -198,7 +226,10 @@
                         <li>Standard support</li>
                         <li>Data export</li>
                     </ul>
-                    <button class="btn-primary" onclick="activateSubscription('weekly')">Activate Weekly</button>
+                    <!-- ОБНОВЛЕНА КНОПКА -->
+                    <button class="btn-primary" onclick="activateSubscription('weekly', 499)">
+                        💎 Subscribe Weekly - $499
+                    </button>
                 </div>
 
                 <div class="plan-card">
@@ -215,7 +246,10 @@
                         <li>Email support</li>
                         <li>PDF reports</li>
                     </ul>
-                    <button class="btn-outline" onclick="activateSubscription('biweekly')">Activate Bi-weekly</button>
+                    <!-- ОБНОВЛЕНА КНОПКА -->
+                    <button class="btn-outline" onclick="activateSubscription('biweekly', 349)">
+                        Subscribe Bi-weekly - $349
+                    </button>
                 </div>
 
                 <div class="plan-card">
@@ -232,7 +266,23 @@
                         <li>Self-service dashboard</li>
                         <li>Standard reports</li>
                     </ul>
-                    <button class="btn-outline" onclick="activateSubscription('monthly')">Activate Monthly</button>
+                    <!-- ОБНОВЛЕНА КНОПКА -->
+                    <button class="btn-outline" onclick="activateSubscription('monthly', 299)">
+                        Subscribe Monthly - $299
+                    </button>
+                </div>
+            </div>
+
+            <!-- ДОБАВЛЕНА СЕКЦИЯ USDT ПЛАТЕЖА -->
+            <div class="usdt-payment-section">
+                <h3>💳 Simple USDT Payment</h3>
+                <div class="payment-instructions">
+                    <p><strong>Send USDT (TRC20) to:</strong></p>
+                    <div class="usdt-address-box">
+                        <code>TGvyTtKBiSY5RHsfWipRdTjpWroeQSGLTC</code>
+                        <button class="btn-copy" onclick="copyUSDTAddress()">Copy</button>
+                    </div>
+                    <p class="payment-note">After payment, email us at <strong>matrix@intelligence.com</strong> with transaction details</p>
                 </div>
             </div>
         </div>
@@ -243,13 +293,52 @@
         <div class="container">
             <h2>Ready for Adaptive Market Intelligence?</h2>
             <p>Start with risk-free analysis and choose your monitoring frequency</p>
-            <button class="btn-secondary large" onclick="window.open('https://ngu2025.github.io/landing-ai-solutions/', '_blank')">
-                📊 Get Started with Risk-Free Analysis
-            </button>
+            <div class="cta-buttons">
+                <button class="btn-primary large" onclick="window.open('https://ngu2025.github.io/landing-ai-solutions/', '_blank')">
+                    📊 Get Risk-Free Analysis First
+                </button>
+                <button class="btn-secondary" onclick="scrollToSubscription()">
+                    💎 Jump to Subscription
+                </button>
+            </div>
         </div>
     </section>
 
-    <script src="js/main.js"></script>
-    <script src="js/metrics.js"></script>
+    <script>
+        // ФУНКЦИОНАЛЬНЫЕ СКРИПТЫ ДЛЯ ПОДПИСКИ
+        function scrollToSubscription() {
+            document.getElementById('subscription').scrollIntoView({ 
+                behavior: 'smooth' 
+            });
+        }
+
+        function activateSubscription(plan, price) {
+            const planNames = {
+                daily: 'Daily Intelligence',
+                weekly: 'Weekly Insights', 
+                biweekly: 'Bi-weekly Analysis',
+                monthly: 'Monthly Strategic'
+            };
+            
+            const message = `You selected: ${planNames[plan]} - $${price}/month\n\n` +
+                           `Please send USDT to:\nTGvyTtKBiSY5RHsfWipRdTjpWroeQSGLTC\n\n` +
+                           `After payment, email transaction details to: matrix@intelligence.com`;
+            
+            alert(message);
+        }
+
+        function copyUSDTAddress() {
+            navigator.clipboard.writeText('TGvyTtKBiSY5RHsfWipRdTjpWroeQSGLTC')
+                .then(() => alert('USDT address copied!'));
+        }
+
+        function showDemoBenefits() {
+            alert('🔓 Full Version Includes:\n\n• Real-time market data\n• Advanced competitor tracking\n• Customer segmentation analytics\n• AI-powered recommendations\n• Custom dashboard\n• Export functionality');
+        }
+
+        function refreshMetrics() {
+            alert('🔄 Metrics refreshed! (Demo mode - limited data)');
+        }
+    </script>
 </body>
 </html>

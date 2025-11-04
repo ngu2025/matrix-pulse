@@ -174,3 +174,11 @@
     margin-top: 1rem;
     font-size: 0.9rem;
 }
+/* Fix footer text visibility */
+.matrix-footer .link-group a {
+    color: #e0e0e0 !important;
+}
+
+.matrix-footer .link-group a:hover {
+    color: var(--matrix-accent) !important;
+}
